@@ -3,7 +3,7 @@ import './ProductCard.css'
 
 const ProductCard = (props) => {
   
-  const [editBtn, setEditBtn] = useState(false)
+  const [editBtn, setEditBtn] = useState(props.price === 0 ? true : false)
 
   const [editProduct, setEditProduct] = useState({
     id: props.id,
