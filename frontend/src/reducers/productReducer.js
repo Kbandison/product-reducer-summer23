@@ -23,19 +23,23 @@ export default function productReducer (product, action) { //product is state
             let editedArray = product.map(element =>  element.id === action.editedObj.id ? action.editedObj : element) 
             return editedArray
         case 'add-product':
+            // creates new empty object
             let newProduct = {
                 id: uuidv4(),
                 title: "",
-                publisher: "",
+                publisher: "", 
                 genre: "",
                 price: 0    
               }
+            // inserts object into the index=0 of the state array
             let addArray = [
                 newProduct,
                 ...product
-            ];  //temp
-            return addArray
-
+            ];
+            return addArray // return to useReducer, which sets the state
+        case 'get-products':
+            return action.payload  //sets the payload data to the product state
+ 
         default:
             alert('No matching types!')
             return product;

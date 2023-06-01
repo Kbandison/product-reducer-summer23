@@ -6,4 +6,8 @@ router.get('/', function(req, res, next) {
   res.send('respond with a resource');
 });
 
+router.get('/new', function(request, response, callback) {
+  response.send('New User Route')
+}) 
+
 module.exports = router;
